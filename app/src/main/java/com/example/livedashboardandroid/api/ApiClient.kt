@@ -1,6 +1,7 @@
 package com.example.livedashboardandroid.api
 
 import android.content.Context
+import com.example.livedashboardandroid.LiveDashboardApplication
 import com.google.gson.Gson
 import com.google.gson.GsonBuilder
 import com.google.gson.reflect.TypeToken
@@ -14,79 +15,6 @@ import retrofit2.http.GET
 import retrofit2.http.Query
 import java.util.Date
 import java.util.TimeZone
-
-data class DeviceState(
-    val device_id: String,
-    val device_name: String,
-    val platform: String,
-    val app_id: String,
-    val app_name: String,
-    val status_text: String?,
-    val display_title: String?,
-    val last_seen_at: String,
-    val is_online: Int,
-    val extra: Extra? = null
-)
-
-data class Extra(
-    val battery_percent: Int?,
-    val battery_charging: Boolean?,
-    val music: Music?
-)
-
-data class Music(
-    val title: String?,
-    val artist: String?,
-    val app: String?
-)
-
-data class ActivityRecord(
-    val id: Int,
-    val device_id: String,
-    val device_name: String,
-    val platform: String,
-    val app_id: String,
-    val app_name: String,
-    val status_text: String?,
-    val display_title: String?,
-    val started_at: String
-)
-
-data class TimelineSegment(
-    val app_name: String,
-    val app_id: String,
-    val status_text: String,
-    val display_title: String?,
-    val started_at: String,
-    val ended_at: String?,
-    val duration_minutes: Int,
-    val device_id: String,
-    val device_name: String
-)
-
-data class CurrentResponse(
-    val devices: List<DeviceState>,
-    val recent_activities: List<ActivityRecord>,
-    val server_time: String,
-    val viewer_count: Int
-)
-
-data class TimelineResponse(
-    val date: String,
-    val segments: List<TimelineSegment>,
-    val summary: Map<String, Map<String, Int>>
-)
-
-interface ApiService {
-    @GET("api/current")
-    suspend fun getCurrent(): CurrentResponse
-
-    @GET("api/timeline")
-    suspend fun getTimeline(
-        @Query("date") date: String,
-        @Query("tz") tz: Int
-    ): TimelineResponse
-}
 
 object ApiClient {
     private val gson: Gson = GsonBuilder()

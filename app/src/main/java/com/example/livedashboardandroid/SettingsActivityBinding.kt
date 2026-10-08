@@ -1,6 +1,7 @@
 package com.example.livedashboardandroid
 
 import android.view.LayoutInflater
+import android.view.View
 import android.view.ViewGroup
 import androidx.annotation.Keep
 import androidx.viewbinding.ViewBinding
@@ -12,7 +13,7 @@ class SettingsActivityBinding private constructor(val settingsActivity: Settings
     val apiKeyEditText: androidx.appcompat.widget.AppCompatEditText = settingsActivity.findViewById(com.example.livedashboardandroid.R.id.apiKeyEditText)
     val saveSettingsButton: androidx.appcompat.widget.AppCompatButton = settingsActivity.findViewById(com.example.livedashboardandroid.R.id.saveSettingsButton)
 
-    override fun getRoot(): SettingsActivity = settingsActivity
+    override fun getRoot(): View = settingsActivity
 
     companion object {
         fun inflate(inflater: LayoutInflater): SettingsActivityBinding {

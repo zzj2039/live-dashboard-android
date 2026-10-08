@@ -1,5 +1,6 @@
 package com.example.livedashboardandroid
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import android.widget.Toast
@@ -10,8 +11,8 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.livedashboardandroid.api.ApiClient
 import com.example.livedashboardandroid.api.DeviceState
-import com.example.livedashboardandroid.databinding.ActivityMainBinding
 import com.example.livedashboardandroid.repository.DashboardRepository
+import com.example.livedashboardandroid.databinding.ActivityMainBinding
 import com.example.livedashboardandroid.ui.DashboardViewModel
 import com.example.livedashboardandroid.ui.DeviceAdapter
 import com.example.livedashboardandroid.ui.TimelineAdapter
