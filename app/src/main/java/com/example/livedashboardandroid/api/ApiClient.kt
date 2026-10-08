@@ -5,6 +5,8 @@ import com.example.livedashboardandroid.LiveDashboardApplication
 import com.google.gson.Gson
 import com.google.gson.GsonBuilder
 import com.google.gson.reflect.TypeToken
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.withContext
 import okhttp3.OkHttpClient
 import okhttp3.Interceptor
 import okhttp3.Request
@@ -21,9 +23,17 @@ object ApiClient {
         .registerTypeAdapter(Date::class.java, DateTypeAdapter())
         .create()
 
+    private suspend fun getServerUrlSuspend(context: Context): String = withContext(Dispatchers.IO) {
+        LiveDashboardApplication.getServerUrl(context)
+    }
+
+    private suspend fun getApiTokenSuspend(context: Context): String = withContext(Dispatchers.IO) {
+        LiveDashboardApplication.getApiToken(context)
+    }
+
     private fun getOkHttpClient(context: Context): OkHttpClient {
-        val serverUrl = LiveDashboardApplication.getServerUrl(context)
-        val apiKey = LiveDashboardApplication.getApiToken(context)
+        val serverUrl = getServerUrlSuspend(context)
+        val apiKey = getApiTokenSuspend(context)
 
         return OkHttpClient.Builder()
             .addInterceptor(loggingInterceptor)
@@ -49,14 +59,14 @@ object ApiClient {
     private val retrofit: Retrofit by lazy {
         val context = com.example.livedashboardandroid.LiveDashboardApplication.instance
         Retrofit.Builder()
-            .baseUrl(getServerUrl(context))
+            .baseUrl(getServerUrlSuspend(context))
             .client(getOkHttpClient(context))
             .addConverterFactory(GsonConverterFactory.create(gson))
             .build()
     }
 
     fun getServerUrl(context: Context): String {
-        return LiveDashboardApplication.getServerUrl(context)
+        return getServerUrlSuspend(context)
     }
 
     val apiService: ApiService by lazy {
