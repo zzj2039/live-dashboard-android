@@ -1,7 +1,6 @@
-<?xml version="1.0" encoding="utf-8"?>
-<shape xmlns:android="http://schemas.android.com/apk/res/android"
-    android:shape="polygon">
-    <solid android:color="@color/colorBackground" />
-    <size android:width="24dp" android:height="12dp" />
-    <corners android:radius="2dp" />
-</shape>
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="24dp" android:height="24dp"
+    android:viewportWidth="24" android:viewportHeight="24">
+    <path android:fillColor="@color/colorSurface"
+        android:pathData="M2,2 L22,2 L12,22 Z" />
+</vector>

@@ -4,10 +4,8 @@ import android.app.DatePickerDialog
 import android.content.Context
 import android.util.AttributeSet
 import android.view.LayoutInflater
-import android.view.View
-import android.widget.DatePicker
-import android.widget.EditText
 import android.widget.ImageButton
+import android.widget.LinearLayout
 import androidx.appcompat.widget.AppCompatEditText
 import com.example.livedashboardandroid.R
 import java.text.SimpleDateFormat
@@ -30,23 +28,19 @@ class DatePicker @JvmOverloads constructor(
 
     init {
         LayoutInflater.from(context).inflate(R.layout.date_picker, this, true)
-        
+
         dateEditText = findViewById(R.id.dateEditText)
         datePickerButton = findViewById(R.id.datePickerButton)
 
-        datePickerButton.setOnClickListener {
-            showDatePicker()
-        }
+        datePickerButton.setOnClickListener { showDatePicker() }
 
-        // 设置默认日期
-        val defaultDate = dateFormat.format(calendar.time)
-        dateEditText.setText(defaultDate)
+        dateEditText.setText(dateFormat.format(calendar.time))
     }
 
     private fun showDatePicker() {
-        val datePickerDialog = DatePickerDialog(
+        DatePickerDialog(
             context,
-            { _: DatePicker, year: Int, month: Int, dayOfMonth: Int ->
+            { _: android.widget.DatePicker, year: Int, month: Int, dayOfMonth: Int ->
                 calendar.set(year, month, dayOfMonth)
                 val selectedDate = dateFormat.format(calendar.time)
                 dateEditText.setText(selectedDate)
@@ -55,15 +49,12 @@ class DatePicker @JvmOverloads constructor(
             calendar.get(Calendar.YEAR),
             calendar.get(Calendar.MONTH),
             calendar.get(Calendar.DAY_OF_MONTH)
-        )
-        datePickerDialog.show()
+        ).show()
     }
 
     fun setDate(date: String) {
         dateEditText.setText(date)
     }
 
-    fun getDate(): String {
-        return dateEditText.text.toString()
-    }
+    fun getDate(): String = dateEditText.text.toString()
 }

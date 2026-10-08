@@ -12,7 +12,7 @@ import java.util.Locale
 
 class TimelineAdapter(private val segments: List<TimelineSegment>) : RecyclerView.Adapter<TimelineAdapter.TimelineViewHolder>() {
 
-    private val colorMap = mutableMapOf<String, Int>()
+    private val colorMap = mutableMapOf<String, String>()
     private val appColors = arrayOf(
         "#E8A0BF", "#88C9C9", "#E8B86D", "#C4A882", "#D4917B",
         "#A8C686", "#D4A0A0", "#8CB8B0", "#C9B97A", "#B89EC4"

@@ -1,31 +1,31 @@
 package com.example.livedashboardandroid.ui
 
 import androidx.lifecycle.ViewModel
+import androidx.lifecycle.asLiveData
 import androidx.lifecycle.viewModelScope
-import com.example.livedashboardandroid.api.ApiService
+import com.example.livedashboardandroid.api.CurrentResponse
+import com.example.livedashboardandroid.api.TimelineResponse
 import com.example.livedashboardandroid.repository.DashboardRepository
 import kotlinx.coroutines.flow.MutableStateFlow
-import kotlinx.coroutines.flow.StateFlow
-import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.launch
 import java.time.LocalDate
 
 class DashboardViewModel(private val repository: DashboardRepository) : ViewModel() {
-    
+
     private val _currentData = MutableStateFlow<CurrentResponse?>(null)
-    val currentData: StateFlow<CurrentResponse?> = _currentData.asStateFlow()
+    val currentData = _currentData.asLiveData()
 
     private val _timelineData = MutableStateFlow<TimelineResponse?>(null)
-    val timelineData: StateFlow<TimelineResponse?> = _timelineData.asStateFlow()
+    val timelineData = _timelineData.asLiveData()
 
     private val _selectedDate = MutableStateFlow(LocalDate.now())
-    val selectedDate: StateFlow<LocalDate> = _selectedDate.asStateFlow()
+    val selectedDate = _selectedDate.asLiveData()
 
     private val _isLoading = MutableStateFlow(false)
-    val isLoading: StateFlow<Boolean> = _isLoading.asStateFlow()
+    val isLoading = _isLoading.asLiveData()
 
     private val _error = MutableStateFlow<String?>(null)
-    val error: StateFlow<String?> = _error.asStateFlow()
+    val error = _error.asLiveData()
 
     init {
         loadCurrentData()
@@ -37,10 +37,9 @@ class DashboardViewModel(private val repository: DashboardRepository) : ViewMode
             _isLoading.value = true
             _error.value = null
             try {
-                val data = repository.getCurrent()
-                _currentData.value = data
+                _currentData.value = repository.getCurrent()
             } catch (e: Exception) {
-                _error.value = "Failed to load current data: ${e.message}"
+                _error.value = "加载当前数据失败: ${e.message}"
             } finally {
                 _isLoading.value = false
             }
@@ -52,10 +51,9 @@ class DashboardViewModel(private val repository: DashboardRepository) : ViewMode
             _isLoading.value = true
             _error.value = null
             try {
-                val data = repository.getTimeline(date)
-                _timelineData.value = data
+                _timelineData.value = repository.getTimeline(date)
             } catch (e: Exception) {
-                _error.value = "Failed to load timeline data: ${e.message}"
+                _error.value = "加载时间线失败: ${e.message}"
             } finally {
                 _isLoading.value = false
             }

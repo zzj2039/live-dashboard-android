@@ -19,4 +19,9 @@
     <color name="colorOnBackgroundVariant">#8B7E74</color>
     <color name="colorOutline">#D0BCBD</color>
     <color name="colorOutlineVariant">#E8D5C4</color>
+
+    <color name="colorPrimaryContainer">#F5D0DE</color>
+    <color name="colorSecondaryContainer">#C9E8E8</color>
+    <color name="colorSurfaceVariant">#F5E6D3</color>
+    <color name="colorBackgroundVariant">#F0DDE3</color>
 </resources>
