@@ -1,4 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">Live Dashboard</string>
+    <string name="settings_title">设置</string>
+    <string name="server_settings">服务器设置</string>
+    <string name="server_url">服务器地址</string>
+    <string name="api_key">API 密钥</string>
+    <string name="save_settings">保存设置</string>
+    <string name="settings_saved">设置已保存</string>
+    <string name="invalid_url">请输入有效的服务器地址</string>
+    <string name="invalid_api_key">请输入 API 密钥</string>
 </resources>

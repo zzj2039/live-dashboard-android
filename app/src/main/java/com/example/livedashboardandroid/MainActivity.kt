@@ -69,6 +69,11 @@ class MainActivity : AppCompatActivity() {
             viewModel.loadCurrentData()
             viewModel.loadTimelineData()
         }
+
+        binding.settingsButton.setOnClickListener {
+            val intent = Intent(this, SettingsActivity::class.java)
+            startActivity(intent)
+        }
     }
 
     private fun observeViewModel() {

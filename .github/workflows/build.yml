@@ -25,8 +25,16 @@ jobs:
       - name: Grant execute permission for gradlew
         run: chmod +x gradlew
 
-      - name: Build Release APK
-        run: ./gradlew assembleRelease --stacktrace
+      - name: Configure Keystore
+        run: |
+          echo "keystore.jks" > keystore.properties
+          echo "storePassword=android" >> keystore.properties
+          echo "keyAlias=androidkey" >> keystore.properties
+          echo "keyPassword=android" >> keystore.properties
+          echo "storeFile=keystore.jks" >> keystore.properties
+
+      - name: Build Release APK with Signing
+        run: ./gradlew assembleRelease --stacktrace -Pandroid.injected.signing.storeFile=keystore.jks -Pandroid.injected.signing.storePassword=android -Pandroid.injected.signing.keyAlias=androidkey -Pandroid.injected.signing.keyPassword=android
 
       - name: Upload APK
         uses: actions/upload-artifact@v4

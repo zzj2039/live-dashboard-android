@@ -46,7 +46,16 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintEnd_toStartOf="@+id/refreshButton" />
+                app:layout_constraintEnd_toStartOf="@+id/settingsButton" />
+
+            <ImageButton
+                android:id="@+id/settingsButton"
+                android:layout_width="32dp"
+                android:layout_height="32dp"
+                android:src="@drawable/ic_settings"
+                android:background="?attr/selectableItemBackgroundBorderless"
+                app:layout_constraintStart_toEndOf="@+id/datePicker"
+                app:layout_constraintEnd_toEndOf="parent" />
 
             <ImageButton
                 android:id="@+id/refreshButton"
@@ -54,7 +63,7 @@
                 android:layout_height="32dp"
                 android:src="@drawable/ic_refresh"
                 android:background="?attr/selectableItemBackgroundBorderless"
-                app:layout_constraintStart_toEndOf="@+id/datePicker"
+                app:layout_constraintStart_toEndOf="@+id/settingsButton"
                 app:layout_constraintEnd_toEndOf="parent" />
 
         </LinearLayout>
