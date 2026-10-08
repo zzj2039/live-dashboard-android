@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/statusBubble"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginBottom="16dp"
+    android:elevation="4dp"
+    app:cardCornerRadius="16dp"
+    app:cardElevation="4dp"
+    app:cardBackgroundColor="@color/colorBackground">
+
+    <!-- Cat ears -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginTop="-12dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp">
+
+        <View
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_weight="1" />
+
+        <ImageView
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:src="@drawable/ear_left"
+            android:layout_marginEnd="8dp" />
+
+        <ImageView
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:src="@drawable/ear_right"
+            android:layout_marginStart="8dp" />
+
+        <View
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_weight="1" />
+
+    </LinearLayout>
+
+    <!-- Main content -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="16dp"
+        android:paddingTop="24dp"
+        android:paddingBottom="16dp">
+
+        <TextView
+            android:id="@+id/statusText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="18sp"
+            android:textColor="@color/colorPrimary"
+            android:fontFamily="@font/zen_maru_gothic"
+            android:textStyle="bold"
+            android:layout_marginBottom="8dp"
+            android:text="正在加载中..." />
+
+        <TextView
+            android:id="@+id/detailText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="12sp"
+            android:textColor="@color/colorTextMuted"
+            android:fontFamily="@font/zen_maru_gothic"
+            android:layout_marginBottom="8dp"
+            android:visibility="gone" />
+
+        <TextView
+            android:id="@+id/musicText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="12sp"
+            android:textColor="@color/colorTextMuted"
+            android:fontFamily="@font/zen_maru_gothic"
+            android:layout_marginBottom="8dp"
+            android:visibility="gone" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center"
+            android:visibility="gone">
+
+            <TextView
+                android:id="@+id/batteryText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="10sp"
+                android:textColor="@color/colorTextMuted"
+                android:fontFamily="@font/zen_maru_gothic" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <!-- Triangle pointer -->
+    <View
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginBottom="-8dp"
+        android:background="@drawable/triangle_pointer" />
+
+</androidx.cardview.widget.CardView>

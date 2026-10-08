@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    android:padding="8dp"
+    android:background="@drawable/timeline_bar_background">
+
+    <!-- Current indicator or color dot -->
+    <LinearLayout
+        android:layout_width="64dp"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:gravity="center"
+        android:paddingStart="8dp"
+        android:paddingEnd="8dp">
+
+        <TextView
+            android:id="@+id/currentBadge"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="▸ 当前"
+            android:textSize="10sp"
+            android:textColor="@color/colorPrimary"
+            android:fontFamily="@font/zen_maru_gothic"
+            android:visibility="gone" />
+
+        <View
+            android:id="@+id/colorDot"
+            android:layout_width="10dp"
+            android:layout_height="10dp"
+            android:layout_marginTop="4dp"
+            android:background="@color/colorPrimary"
+            android:visibility="gone" />
+
+    </LinearLayout>
+
+    <!-- App description -->
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:orientation="vertical"
+        android:paddingStart="8dp"
+        android:paddingEnd="8dp"
+        android:background="@drawable/timeline_bar_background_content">
+
+        <TextView
+            android:id="@+id/appStatusText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="12sp"
+            android:textColor="@color/colorText"
+            android:fontFamily="@font/zen_maru_gothic"
+            android:textStyle="bold"
+            android:ellipsize="end"
+            android:lines="1" />
+
+    </LinearLayout>
+
+    <!-- Duration -->
+    <LinearLayout
+        android:layout_width="64dp"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:gravity="center"
+        android:paddingStart="8dp"
+        android:paddingEnd="8dp">
+
+        <TextView
+            android:id="@+id/durationText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="10sp"
+            android:textColor="@color/colorAccent"
+            android:fontFamily="@font/zen_maru_gothic"
+            android:textStyle="bold"
+            android:gravity="end" />
+
+    </LinearLayout>
+
+</LinearLayout>

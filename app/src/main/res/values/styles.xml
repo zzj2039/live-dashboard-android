@@ -1,0 +1,59 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <!-- Base application theme. -->
+    <style name="Theme.LiveDashboardAndroid" parent="Theme.Material3.DayNight.NoActionBar">
+        <!-- Primary brand color. -->
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorOnPrimary">@color/colorOnPrimary</item>
+        <item name="colorPrimaryContainer">@color/colorPrimaryContainer</item>
+        <item name="colorOnPrimaryContainer">@color/colorOnPrimaryContainer</item>
+        <!-- Secondary brand color. -->
+        <item name="colorSecondary">@color/colorSecondary</item>
+        <item name="colorOnSecondary">@color/colorOnSecondary</item>
+        <item name="colorSecondaryContainer">@color/colorSecondaryContainer</item>
+        <item name="colorOnSecondaryContainer">@color/colorOnSecondaryContainer</item>
+        <!-- Background color. -->
+        <item name="android:windowBackground">@color/colorBackground</item>
+        <item name="colorSurface">@color/colorSurface</item>
+        <item name="colorOnSurface">@color/colorOnSurface</item>
+        <item name="colorSurfaceVariant">@color/colorSurfaceVariant</item>
+        <item name="colorOnSurfaceVariant">@color/colorOnSurfaceVariant</item>
+        <item name="colorBackground">@color/colorBackground</item>
+        <item name="colorOnBackground">@color/colorOnBackground</item>
+        <item name="colorBackgroundVariant">@color/colorBackgroundVariant</item>
+        <item name="colorOnBackgroundVariant">@color/colorOnBackgroundVariant</item>
+        <!-- Status bar color. -->
+        <item name="android:statusBarColor">@color/colorPrimary</item>
+        <!-- Customize your theme here. -->
+        <item name="android:fontFamily">@font/zen_maru_gothic</item>
+    </style>
+
+    <style name="Theme.LiveDashboardAndroid.NoActionBar">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+    </style>
+
+    <style name="TimelineBar" parent="Widget.Material3.CardView">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginBottom">4dp</item>
+        <item name="android:elevation">2dp</item>
+        <item name="android:background">@drawable/timeline_bar_background</item>
+    </style>
+
+    <style name="DeviceCard" parent="Widget.Material3.CardView">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginBottom">8dp</item>
+        <item name="android:elevation">2dp</item>
+        <item name="android:background">@drawable/device_card_background</item>
+    </style>
+
+    <style name="StatusBubble" parent="Widget.Material3.CardView">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginBottom">16dp</item>
+        <item name="android:elevation">4dp</item>
+        <item name="android:background">@drawable/status_bubble_background</item>
+    </style>
+
+</resources>
